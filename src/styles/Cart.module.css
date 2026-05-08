@@ -1,0 +1,225 @@
+.cartContainer {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.emptyCart {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartTable {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 80px 1fr 100px 150px 120px 80px;
+  gap: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  font-weight: 600;
+  border-bottom: 2px solid #e0e0e0;
+  align-items: center;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 80px 1fr 100px 150px 120px 80px;
+  gap: 15px;
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.tableRow:hover {
+  background-color: #f8f9fa;
+}
+
+.colImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.colName {
+  display: flex;
+  flex-direction: column;
+}
+
+.colName h6 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.colPrice,
+.colQuantity,
+.colTotal {
+  text-align: center;
+}
+
+.colAction {
+  text-align: center;
+}
+
+.quantityControl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.quantityBtn {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: all 0.2s;
+}
+
+.quantityBtn:hover {
+  background-color: #f0f0f0;
+  border-radius: 2px;
+}
+
+.quantityInput {
+  width: 50px;
+  border: none;
+  text-align: center;
+  font-weight: 600;
+}
+
+.quantityInput:focus {
+  outline: none;
+}
+
+.removeBtn {
+  padding: 4px 8px;
+}
+
+.orderSummary {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 20px;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.summaryRowTotal {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #28a745;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 60px 1fr 60px 60px 60px;
+    gap: 10px;
+    font-size: 0.9rem;
+  }
+
+  .colImage {
+    display: none;
+  }
+
+  .colName h6 {
+    font-size: 0.85rem;
+  }
+
+  .quantityControl {
+    padding: 2px;
+  }
+
+  .quantityBtn {
+    padding: 2px 4px;
+    font-size: 1rem;
+  }
+
+  .quantityInput {
+    width: 40px;
+    font-size: 0.85rem;
+  }
+
+  .orderSummary {
+    position: static;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .tableHeader {
+    display: none;
+  }
+
+  .tableRow {
+    grid-template-columns: 1fr;
+    padding: 12px;
+    background-color: #f8f9fa;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+  }
+
+  .colImage,
+  .colName,
+  .colPrice,
+  .colQuantity,
+  .colTotal,
+  .colAction {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+  }
+
+  .colImage {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .colPrice::before,
+  .colQuantity::before,
+  .colTotal::before {
+    content: attr(data-label);
+    font-weight: 600;
+    display: block;
+    font-size: 0.85rem;
+    color: #666;
+  }
+
+  .quantityControl {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .removeBtn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,171 @@
+.checkoutContainer {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.emptyCheckout {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section {
+  background: white;
+  padding: 24px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sectionTitle {
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #007bff;
+}
+
+.orderSummary {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 20px;
+}
+
+.summaryItems {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.summaryItem {
+  display: grid;
+  grid-template-columns: 50px 1fr 80px;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.itemImage {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.itemDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.itemName {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.itemPrice {
+  font-weight: 600;
+  color: #28a745;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.summaryRowTotal {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #28a745;
+}
+
+.successCard {
+  border: 2px solid #28a745;
+  background: #f0fdf4;
+}
+
+.successIcon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  background: #28a745;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.orderDetails {
+  background: white;
+  padding: 16px;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+.orderDetails p {
+  margin-bottom: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section {
+    padding: 16px;
+  }
+
+  .sectionTitle {
+    font-size: 1.1rem;
+  }
+
+  .orderSummary {
+    position: static;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .checkoutContainer {
+    padding: 0;
+  }
+
+  .section {
+    border-radius: 0;
+    margin-bottom: 16px;
+    box-shadow: none;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .sectionTitle {
+    font-size: 1rem;
+  }
+
+  .summaryItem {
+    grid-template-columns: 40px 1fr 60px;
+  }
+
+  .itemImage {
+    width: 40px;
+    height: 40px;
+  }
+
+  .successIcon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+}
