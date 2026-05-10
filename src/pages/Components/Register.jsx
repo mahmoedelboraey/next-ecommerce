@@ -1,13 +1,10 @@
 "use client";
-
-
 import Link from "next/link";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { useRouter } from "next/router";
-
 export default function Register() {
   const router = useRouter();
 
