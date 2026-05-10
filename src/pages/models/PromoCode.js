@@ -30,7 +30,7 @@ const PromoCodeSchema = new mongoose.Schema(
     },
     usageLimit: {
       type: Number,
-      default: null, // null = unlimited
+      default: null, 
     },
     usedCount: {
       type: Number,

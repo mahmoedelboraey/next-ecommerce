@@ -92,7 +92,7 @@ function FilterSidebar({
         )}
       </div>
 
-      {/* CATEGORY */}
+     
       <div className="mb-3">
         <div
           onClick={() => toggleSection("category")}
@@ -135,7 +135,7 @@ function FilterSidebar({
         )}
       </div>
 
-      {/* PRICE */}
+      
       <div className="mb-3">
         <div
           onClick={() => toggleSection("price")}

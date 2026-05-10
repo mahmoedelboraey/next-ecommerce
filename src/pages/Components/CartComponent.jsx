@@ -276,7 +276,7 @@ function CartComponent() {
                   </div>
                 )}
 
-                {/* Summary Details */}
+                
                 <div className="border-top pt-3">
                   <div className="d-flex justify-content-between mb-2">
                     <span>Subtotal:</span>

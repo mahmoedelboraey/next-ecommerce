@@ -51,7 +51,7 @@ function Navbar() {
           eShop
         </Link>
 
-        {/* Mobile Toggler */}
+        
         <button
           className="navbar-toggler"
           type="button"
@@ -65,9 +65,9 @@ function Navbar() {
           <span className="navbar-toggler-icon" />
         </button>
 
-        {/* Navigation Menu */}
+      
         <div className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`} id="navbarNav">
-          {/* Left Menu Items */}
+          
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link className="nav-link fw-500" href="/Home" style={{ transition: "0.3s" }}>
@@ -81,9 +81,9 @@ function Navbar() {
             </li>
           </ul>
 
-          {/* Right Menu Items */}
+         
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center gap-3">
-            {/* Cart Icon */}
+         
             <li className="nav-item">
               <Link
                 className="nav-link position-relative"
@@ -106,7 +106,7 @@ function Navbar() {
               </Link>
             </li>
 
-            {/* Wishlist Icon */}
+           
             <li className="nav-item">
               <Link
                 className="nav-link position-relative"
@@ -129,7 +129,7 @@ function Navbar() {
               </Link>
             </li>
 
-            {/* User Info / Auth Buttons */}
+           
             {session ? (
               // User Logged In - Dropdown
               <li className="nav-item dropdown position-relative" ref={dropdownRef} style={{ listStyle: "none" }}>
@@ -162,7 +162,7 @@ function Navbar() {
                   <span style={{ fontSize: "0.8rem", marginLeft: "4px" }}>▼</span>
                 </button>
 
-                {/* Dropdown Menu */}
+              
                 {isDropdownOpen && (
                   <ul
                     className="dropdown-menu show"
@@ -259,7 +259,7 @@ function Navbar() {
                 )}
               </li>
             ) : (
-              // User Not Logged In
+             
               <>
                 <li className="nav-item">
                   <Link className="nav-link btn btn-outline-light btn-sm" href="/login" style={{ marginRight: "8px" }}>

@@ -31,7 +31,7 @@ function HeroSectionHome() {
         }}
       />
 
-      {/* Content */}
+      
       <div
         style={{
           position: 'relative',

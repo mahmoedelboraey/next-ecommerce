@@ -4,7 +4,7 @@ const CartSchema = new mongoose.Schema(
   {
     sessionId: {
       type: String,
-      required: true,
+      default: null,
       index: true,
     },
     userId: {
@@ -31,17 +31,17 @@ const CartSchema = new mongoose.Schema(
       code: String,
       discount: Number,
     },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-      expire: 2592000, // 30 days TTL
-    },
     updatedAt: {
       type: Date,
       default: Date.now,
     },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+   
+  }
 );
+
+
 
 export default mongoose.models.Cart || mongoose.model("Cart", CartSchema);

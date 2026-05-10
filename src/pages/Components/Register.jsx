@@ -177,7 +177,7 @@ export default function Register() {
           </div>
         </div>
 
-        {/* RIGHT - IMAGE */}
+      
        <div className="col-md-6 d-none d-md-block p-0">
   <img
     src="https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1200&q=80"
@@ -190,7 +190,7 @@ export default function Register() {
     </div>
   );
 }
-// Register.noLayout = true;
+
 
 Register.getLayout = function (page) {
   return <>{page}</>;

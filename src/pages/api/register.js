@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
-import dbconnected from "../lib/mongodb";       // ✅ path صح
-import UserAuth from "../models/UserAuth";       // ✅ path صح
+import dbconnected from "../lib/mongodb";       
+import UserAuth from "../models/UserAuth";       
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -12,7 +12,6 @@ export default async function handler(req, res) {
 
     const { name, email, password, phone } = req.body;
 
-    // تأكد إن كل الحقول موجودة
     if (!name || !email || !password || !phone) {
       return res.status(400).json({ message: "All fields are required" });
     }

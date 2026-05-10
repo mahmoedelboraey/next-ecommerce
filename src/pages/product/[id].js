@@ -132,9 +132,9 @@ export default function ProductDetails() {
   return (
     <div className="container py-5">
       <div className="row g-4">
-        {/* Left: Image Gallery */}
+        
         <div className="col-lg-6">
-          {/* Main Image */}
+          
           <div
             style={{
               marginBottom: "20px",
@@ -172,7 +172,7 @@ export default function ProductDetails() {
             />
           </div>
 
-          {/* Thumbnail Gallery */}
+          
           {images.length > 1 && (
             <div className="d-flex gap-2" style={{ overflowX: "auto" }}>
               {images.map((img, idx) => (
@@ -196,9 +196,9 @@ export default function ProductDetails() {
           )}
         </div>
 
-        {/* Right: Product Information */}
+        
         <div className="col-lg-6">
-          {/* Breadcrumb */}
+          
           <nav style={{ marginBottom: "20px" }}>
             <ol className="breadcrumb">
               <li className="breadcrumb-item">
@@ -211,10 +211,10 @@ export default function ProductDetails() {
             </ol>
           </nav>
 
-          {/* Title */}
+        
           <h1 className="fw-bold mb-2">{product.title}</h1>
 
-          {/* Category & SKU */}
+      
           <div className="mb-3">
             <span className="badge bg-info me-2">
               {product.category?.toUpperCase()}
@@ -222,7 +222,7 @@ export default function ProductDetails() {
             <span className="text-muted small">SKU: {product.id}</span>
           </div>
 
-          {/* Rating */}
+          
           <div className="mb-4">
             <div style={{ marginBottom: "8px" }}>
               {renderStars(product.rating)}
@@ -232,7 +232,7 @@ export default function ProductDetails() {
             </span>
           </div>
 
-          {/* Price Section */}
+      
           <div className="mb-4 p-3 bg-light rounded">
             <div className="row g-2">
               <div className="col-auto">
@@ -255,7 +255,7 @@ export default function ProductDetails() {
             </div>
           </div>
 
-          {/* Stock Status */}
+       
           <div className="mb-4">
             {product.stock > 0 ? (
               <span className="badge bg-success p-2">✓ In Stock ({product.stock} available)</span>
@@ -264,13 +264,13 @@ export default function ProductDetails() {
             )}
           </div>
 
-          {/* Description */}
+          
           <div className="mb-4">
             <h5 className="fw-bold">Description</h5>
             <p className="text-muted">{product.description}</p>
           </div>
 
-          {/* Product Details */}
+         
           <div className="mb-4">
             <h5 className="fw-bold">Product Details</h5>
             <table className="table table-sm">
@@ -291,7 +291,6 @@ export default function ProductDetails() {
             </table>
           </div>
 
-          {/* Quantity Selector */}
           <div className="mb-4">
             <label className="form-label fw-bold">Quantity</label>
             <div className="d-flex gap-2 align-items-center">
@@ -325,9 +324,9 @@ export default function ProductDetails() {
             </div>
           </div>
 
-          {/* Action Buttons */}
+        
           <div className="d-flex gap-2 mb-4">
-            {/* Add to Cart */}
+         
             <button
               onClick={handleAddToCart}
               disabled={isAdded || isAdding || !session || product.stock === 0}
@@ -360,7 +359,7 @@ export default function ProductDetails() {
             </button>
           </div>
 
-          {/* Info Box */}
+       
           {!session && (
             <div className="alert alert-info" role="alert">
               <strong>Please log in</strong> to add this product to your cart or wishlist.

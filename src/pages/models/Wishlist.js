@@ -4,7 +4,7 @@ const WishlistSchema = new mongoose.Schema(
   {
     sessionId: {
       type: String,
-      required: true,
+      default: null,
       index: true,
     },
     userId: {
@@ -26,17 +26,15 @@ const WishlistSchema = new mongoose.Schema(
         },
       },
     ],
-    createdAt: {
-      type: Date,
-      default: Date.now,
-      expire: 7776000, // 90 days TTL
-    },
     updatedAt: {
       type: Date,
       default: Date.now,
     },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+    
+  }
 );
 
 export default mongoose.models.Wishlist ||

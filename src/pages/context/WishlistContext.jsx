@@ -1,21 +1,20 @@
+
 import React, { createContext, useState, useEffect, useCallback } from "react";
+import { useSession } from "next-auth/react";
 
 export const WishlistContext = createContext();
 
 export const WishlistProvider = ({ children }) => {
+  const { data: session, status } = useSession();
   const [wishlist, setWishlist] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Fetch wishlist from API
   const fetchWishlist = useCallback(async () => {
     try {
       setIsLoading(true);
       const response = await fetch("/api/wishlist/get");
       const data = await response.json();
-
-      if (data.success) {
-        setWishlist(data.wishlist);
-      }
+      if (data.success) setWishlist(data.wishlist);
     } catch (error) {
       console.error("Error fetching wishlist:", error);
       setWishlist({ items: [] });
@@ -24,9 +23,12 @@ export const WishlistProvider = ({ children }) => {
     }
   }, []);
 
+  
   useEffect(() => {
-    fetchWishlist();
-  }, [fetchWishlist]);
+    if (status !== "loading") {
+      fetchWishlist();
+    }
+  }, [status, session?.user?.email, fetchWishlist]);
 
   const addToWishlist = async (product) => {
     try {
@@ -35,12 +37,8 @@ export const WishlistProvider = ({ children }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ product }),
       });
-
       const data = await response.json();
-      if (data.success) {
-        setWishlist(data.wishlist);
-        return true;
-      }
+      if (data.success) { setWishlist(data.wishlist); return true; }
       return false;
     } catch (error) {
       console.error("Error adding to wishlist:", error);
@@ -55,12 +53,8 @@ export const WishlistProvider = ({ children }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ productId }),
       });
-
       const data = await response.json();
-      if (data.success) {
-        setWishlist(data.wishlist);
-        return true;
-      }
+      if (data.success) { setWishlist(data.wishlist); return true; }
       return false;
     } catch (error) {
       console.error("Error removing from wishlist:", error);
@@ -69,40 +63,21 @@ export const WishlistProvider = ({ children }) => {
   };
 
   const toggleWishlist = async (product) => {
-    const isInWishlist = isProductInWishlist(product.id);
-
-    if (isInWishlist) {
-      return await removeFromWishlist(product.id);
-    } else {
-      return await addToWishlist(product);
-    }
+    if (isProductInWishlist(product.id)) return await removeFromWishlist(product.id);
+    return await addToWishlist(product);
   };
 
-  const isProductInWishlist = (productId) => {
-    if (!wishlist || !wishlist.items) return false;
-    return wishlist.items.some((item) => item.productId === productId);
-  };
-
+  const isProductInWishlist = (productId) => wishlist?.items?.some((i) => i.productId === productId) ?? false;
   const getWishlist = () => wishlist;
-
-  const clearWishlist = () => {
-    setWishlist({ items: [] });
-  };
+  const clearWishlist = () => setWishlist({ items: [] });
 
   return (
-    <WishlistContext.Provider
-      value={{
-        wishlist,
-        isLoading,
-        addToWishlist,
-        removeFromWishlist,
-        toggleWishlist,
-        isProductInWishlist,
-        getWishlist,
-        clearWishlist,
-        fetchWishlist,
-      }}
-    >
+    <WishlistContext.Provider value={{
+      wishlist, isLoading,
+      addToWishlist, removeFromWishlist,
+      toggleWishlist, isProductInWishlist,
+      getWishlist, clearWishlist, fetchWishlist,
+    }}>
       {children}
     </WishlistContext.Provider>
   );

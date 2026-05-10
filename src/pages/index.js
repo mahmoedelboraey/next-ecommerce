@@ -5,7 +5,7 @@ export default function Index() {
   const router = useRouter();
 
   useEffect(() => {
-    // Redirect to /Home page
+ 
     router.replace("/Home");
   }, [router]);
 

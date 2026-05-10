@@ -29,14 +29,13 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Promo code usage limit reached" });
     }
 
-    // Check minimum order amount
     if (cartTotal < promo.minOrderAmount) {
       return res.status(400).json({
         error: `Minimum order amount required: $${promo.minOrderAmount}`,
       });
     }
 
-    // Calculate discount
+
     let discount = 0;
     if (promo.discountType === "percentage") {
       discount = (cartTotal * promo.discount) / 100;
